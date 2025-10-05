@@ -6,7 +6,7 @@ import numpy as np
 # Load Saved Models
 # ==========================
 tf = pickle.load(open("tfidfssss.pkl", "rb"))
-mn= pickle.load(open("mnssss.pkl", "rb"))
+mn = pickle.load(open("mnssss.pkl", "rb"))
 le = pickle.load(open("encoderssss.pkl", "rb"))
 
 # ==========================
@@ -38,11 +38,6 @@ if st.button("🔍 Predict"):
             st.error("🚨 The news appears to be **FAKE**.")
         else:
             st.success("✅ The news appears to be **REAL**.")
-
-        # Optional: show prediction probability
-        if hasattr(mn, "predict_proba"):
-            prob = mn.predict_proba(vectorized_input)[0]
-            st.write(f"**Confidence:** Fake: {prob[1]*100:.2f}% | Real: {prob[0]*100:.2f}%")
 
 # ==========================
 # Footer
